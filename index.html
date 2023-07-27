@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,10 +7,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <title>Little Flower School</title>
 </head>
 
-<body>
+<body background="bg.png">
   <style>
     
 /* UTILITIES */
@@ -19,15 +21,18 @@
   box-sizing: border-box;
 }
 .txt {
-  width: 320px;
+  width: auto;
+  height: auto;
   padding: 10px;
-  border: 5px solid rgb(0, 0, 0);
+  border: 5px solid rgb(4, 1, 27);
   margin: auto;
   font-family: 'Courier New', monospace;
+  color: #ffffff;
+  
 }
 
 body {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: 'Courier New', monospace;
 }
 
 a {
@@ -158,6 +163,54 @@ input[type=checkbox] {
   .dropdown li:hover {
     background-color: #4c7d9e;
 }
+img
+{
+	max-width: 100%;
+}
+
+.image-left, .image-right
+{
+	margin: 1em 0;
+}
+
+@media (min-width: 1em)
+{
+	.image-left
+	{
+		display: flex;
+		align-items: center;
+	}
+
+	.image-left img
+	{
+		margin-right: 1em;
+		float: left; /* fallback */
+	}
+
+	.image-right img
+	{
+		order: 1;
+		margin-left: 1em;
+		float: right; /* fallback */
+	}
+	
+	/* clearfix for fallback */
+	.image-left::after,
+	.image-right::after
+	{
+		content: "";
+  	display: block;
+		clear: both;
+	}
+}
+
+@media (min-width: 30000em)
+{
+	.image-left img, .image-right img
+	{
+		flex-shrink: 0;
+	}
+}
 }
   </style>
 <script>
@@ -181,11 +234,11 @@ input[type=checkbox] {
       <div class="menu">
 
         <li><a href="#!" onclick="myalert()">Home</a></li>
-        <li><a href="/">Contact Us</a></li>
+        <li><a href="members.html">Members</a></li>
 
   
 
-        <li><a href="/">Pricing</a></li>
+        <li><a href="Activities.html">Activities</a></li>
         <li><a href="https://lfsjamshedpur.com/contact">Contact</a></li>
       </div>
       
@@ -194,15 +247,31 @@ input[type=checkbox] {
   
   <img src="01.jpg" alt="alternate text…" style= "width: 100%;height: auto">
 
-  <div class="txt" align="center">
- 
-    <img src="logo.png" alt="alternate text…" style= "width: 69%;height: auto">
-    <br>
-    <br>
-    <b> LEARN | INTERPRET | IMPLEMENT</b></div>
+  <br>
   <br>
 
+  <div class="txt">
+    <div>
 
+    </div>
+    <div class="image-left">
+      <br>
+      <br>
+      <br>
+      <img src="logo.png" style= "width: 25%;height: auto">
+      <div>
+        <p>Extracurricular activities are essential for students because they allow them to learn about themselves and their interests. They also help them develop skills that will help them in their future careers and life..</p>
+        <cite>www.lfsjamshedpur.com</cite>
+      </div>
+    </div>
+   </div>
+  <br>
+
+  
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>
