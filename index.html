@@ -1,277 +1,182 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <title>Little Flower School</title>
+      <meta charset="UTF-8">
+      <meta https-equiv="X-UA-Compatible" content="ie=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Matrix rain animation with message</title>
+      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap" rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      <script src="custom.js"></script>
+      <link rel="stylesheet" href="style.css"> 
 </head>
-
-<body background="bg.png">
-  <style>
-    
-/* UTILITIES */
-* {
-  margin: 0;
+<style>
+    *{
   padding: 0;
-  box-sizing: border-box;
-}
-.txt {
-  width: auto;
-  height: auto;
-  padding: 10px;
-  border: 5px solid rgb(4, 1, 27);
-  margin: auto;
-  font-family: 'Courier New', monospace;
-  color: #ffffff;
-  
+  margin: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
-body {
-  font-family: 'Courier New', monospace;
+html, body {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 100;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    color: #10d210; 
+    overflow: hidden;
 }
-
-a {
-  text-decoration: none;
-}
-
-li {
-  list-style: none;
-}
-/* NAVBAR STYLING STARTS */
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  background-color: rgb(0, 0, 0);
-  color: #fff;
-}
-
-.nav-links a {
-  color: #fff;
-}
-
-/* LOGO */
-.logo {
-  font-size: 32px;
-}
-
-/* NAVBAR MENU */
-.menu {
-  display: flex;
-  gap: 1em;
-  font-size: 18px;
-}
-
-.menu li:hover {
-  background-color: #000000;
-  border-radius: 5px;
-  transition: 0.3s ease;
-}
-
-.menu li {
-  padding: 5px 14px;
-}
-
-/* DROPDOWN MENU */
-.services {
-  position: relative; 
-}
-
-.dropdown {
-  background-color: rgb(0, 0, 0);
-  padding: 1em 0;
-  position: absolute; /*WITH RESPECT TO PARENT*/
-  display: none;
-  border-radius: 8px;
-  top: 35px;
-}
-
-.dropdown li + li {
-  margin-top: 10px;
-}
-
-.dropdown li {
-  padding: 0.5em 1em;
-  width: 8em;
-  text-align: center;
-}
-
-.dropdown li:hover {
-  background-color: #000000;
-}
-
-.services:hover .dropdown {
-  display: block;
-}
-/* RESPONSIVE NAVBAR MENU STARTS */
-
-/* CHECKBOX HACK */
-
-input[type=checkbox] {
-  display: none;
-} 
-
-/* HAMBURGER MENU */
-.hamburger {
-  display: none;
-  font-size: 24px;
-  user-select: none;
-}
-
-/* APPLYING MEDIA QUERIES */
-@media (max-width: 768px) {
- .menu {
-    display:none;
-    position: absolute;
-    background-color:rgb(0, 0, 0);
-    right: 0;
-    left: 0;
-    text-align: center;
-    padding: 16px 0;
-  }
-
-  .menu li:hover {
-    display: inline-block;
-    background-color:#3168b1;
-    transition: 0.3s ease;
-  }
-
-  .menu li + li {
-    margin-top: 12px;
-  }
-
-  input[type=checkbox]:checked ~ .menu {
-    display: block;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .dropdown {
+body .content {
+    position: absolute !important;
+    top: 50%;
     left: 50%;
-    top: 30px;
-    transform: translateX(35%);
-  }
-
-  .dropdown li:hover {
-    background-color: #4c7d9e;
+    text-align: center;
+    transform: translateX(-50%) translateY(-50%);
 }
-img
-{
-	max-width: 100%;
+.random {
+    max-width: 500px;
+    margin: auto;
+    border: 2px solid;
+    padding: 15px; 
 }
-
-.image-left, .image-right
-{
-	margin: 1em 0;
+.random > span {
+    width: 30px;
+    display: inline-block;
 }
-
-@media (min-width: 1em)
-{
-	.image-left
-	{
-		display: flex;
-		align-items: center;
-	}
-
-	.image-left img
-	{
-		margin-right: 1em;
-		float: left; /* fallback */
-	}
-
-	.image-right img
-	{
-		order: 1;
-		margin-left: 1em;
-		float: right; /* fallback */
-	}
-	
-	/* clearfix for fallback */
-	.image-left::after,
-	.image-right::after
-	{
-		content: "";
-  	display: block;
-		clear: both;
-	}
+.mask {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
-@media (min-width: 30000em)
-{
-	.image-left img, .image-right img
-	{
-		flex-shrink: 0;
-	}
+.mask > img {
+    filter: opacity(0.6) brightness(0.1);
+    width: 100%;
+    max-width: 680px;
+    margin: auto;
 }
-}
-  </style>
+</style>
 <script>
-  function myalert() {
-      alert("\n " +
-          "You are already on Home Page");
-  }
+    window.addEventListener("load", eventWindowLoaded, false);
+      function eventWindowLoaded() {
+        canvasApp();
+      } 
+      function canvasSupport(e) {
+        return !!e.getContext;
+      } 
+
+      function canvasApp() {
+        var canvas = document.getElementById("matrix");
+
+        if (!canvasSupport(matrix)) {
+          return;
+        }
+
+        var ctx = canvas.getContext("2d");
+        var w = (canvas.width = window.innerWidth);
+        var h = (canvas.height = window.innerHeight);
+        var yPosition = Array(300).join(0).split("");
+
+
+        function runMatrix() {
+           if (typeof Game_Interval != "undefined") clearInterval(Game_Interval);
+            Game_Interval = setInterval(drawScreen, 33)
+        }
+
+        function drawScreen() {
+         ctx.fillStyle = "rgba(0,0,0,.06)";
+         ctx.fillRect(0, 0, w, h);
+         ctx.fillStyle = "#0f0";
+         ctx.font = "15px IBM Plex Sans";
+         yPosition.map(function(y, index) {
+           text = String.fromCharCode(1e2 + Math.random() * 33);
+           x = index * 10 + 10;
+           ctx.fillText(text, x, y);
+           if (y > 100 + Math.random() * 1e4) {
+            yPosition[index] = 0;
+           }else {
+            yPosition[index] = y + 10;
+           }
+         });
+        }
+        runMatrix();
+      }  
+
+
+
+
+      $(document).ready(function(){
+        var $randomString = $(".str");
+        var $timer = 30;
+        var $it;
+        var $data = 0;
+        var $index;
+        var $change;
+        var $letters = ["C","o","m","p","u","t","e","r"," ","C","l","u","b"," "];
+        //var $letters = ["S","t","a","c","k","f","i","n","d","o","v","e","r"]; 
+
+        $randomString.each(function(){
+          $change = Math.round(Math.random()*100);
+          $(this).attr('data-change', $change)
+        });
+
+        function random(){
+          return Math.round(Math.random()*9);
+        }
+        function select(){
+          return Math.round(Math.random()*$randomString.length+1);
+        }
+
+        function value(){
+          $(".str:nth-child("+select()+")").html(''+random()+'');
+          $(".str:nth-child("+select()+")").attr('data-number', $data);
+          $data++;
+
+          $randomString.each(function(){
+            if (parseInt($(this).attr('data-number')) > parseInt($(this).attr('data-change')) ) {
+              $index = $('.ltr').index(this);
+              $(this).html($letters[$index]);
+              $(this).removeClass('str');
+            }
+          });
+
+        };
+
+        $it = setInterval(value, $timer);
+
+      }); 
 </script>
-  <nav class="navbar">
-    <!-- LOGO -->
-    <div class="logo">Computer Club_</div>
+<body>
+    <div class="mask"> <img src="anonymous_mask.png"> </div>
 
-    <!-- NAVIGATION MENU -->
-    <ul class="nav-links">
-
-      <!-- USING CHECKBOX HACK -->
-      <input type="checkbox" id="checkbox_toggle" />
-      <label for="checkbox_toggle" class="hamburger">&#9776;</label>
-
-      <!-- NAVIGATION MENUS -->
-      <div class="menu">
-
-        <li><a href="#!" onclick="myalert()">Home</a></li>
-        <li><a href="members.html">Members</a></li>
-
-  
-
-        <li><a href="Activities.html">Activities</a></li>
-        <li><a href="https://lfsjamshedpur.com/contact">Contact</a></li>
+      <div class="content">
+        <div class="random">
+          <!-- Here text wich you want to add in counter -->
+          <span class="str ltr">0</span>
+          <span class="str ltr">0</span>
+          <span class="str ltr">0</span>
+          <span class="str ltr">0</span>
+          <span class="str ltr">0</span>
+          <span class="str ltr">0</span>
+          <span class="str ltr">0</span>
+          <span class="str ltr">0</span>
+          <span class="str ltr">0</span>
+          <span class="str ltr">0</span>
+          <span class="str ltr">0</span>
+          <span class="str ltr">0</span>
+          <span class="str ltr">0</span>
+          <span class="str ltr">0</span>
+        </div>
       </div>
-      
-    </ul>
-  </nav>
-  
-  <img src="01.jpg" alt="alternate text…" style= "width: 100%;height: auto">
-
-  <br>
-  <br>
-
-  <div class="txt">
-    <div>
-
-    </div>
-    <div class="image-left">
-      <br>
-      <br>
-      <br>
-      <img src="logo.png" style= "width: 25%;height: auto">
-      <div>
-        <p>Extracurricular activities are essential for students because they allow them to learn about themselves and their interests. They also help them develop skills that will help them in their future careers and life..</p>
-        <cite>www.lfsjamshedpur.com</cite>
-      </div>
-    </div>
-   </div>
-  <br>
-
-  
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+      <script>
+        setTimeout(function(){
+           window.location.href = 'user.html';
+        }, 5000);
+     </script>
 </body>
-
 </html>
